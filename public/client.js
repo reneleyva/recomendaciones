@@ -32,35 +32,3 @@ $('#search').autocomplete({
         	ui.item.value = "";
         }
     });
-// const button = document.getElementById('myButton');
-// button.addEventListener('click', function(e) {
-//   console.log('button was clicked');
-
-// 	var payload = {
-// 		a: 1,
-// 		b: 2
-// 	};
-
-// 	var data = new FormData();
-// 	data.append("json", JSON.stringify( payload ));
-//   	var options = {
-//   		headers: {
-// 	        'Accept': 'application/json',	
-// 	        'Content-Type': 'application/json'
-// 	      },
-// 	    method: "POST",
-// 	    body: data
-//   	};
-
-//   fetch('/clicked', options)
-//     .then(function(response) {
-//       if(response.ok) {
-//         console.log('Click was recorded');
-//         return;
-//       }
-//       throw new Error('Request failed.');
-//     })
-//     .catch(function(error) {
-//       console.log(error);
-//     });
-// });

@@ -6,26 +6,16 @@
   </head>
   <body>
     <h1>Pon las pelis que te gustan prro</h1>
-    <form action="/send" method="POST" accept-charset="utf-8">
-      <input type="text" name="ids" id="search" placeholder="Buscar...">
-      <button type="submit">SEND!</button>
-    </form>
+    <input type="text" name="ids" id="search" placeholder="Buscar...">
 	<div class="liked-movies">
 		<h3>Me gustan:</h3>
 		<ul id="movie-titles">
 		</ul>
 	</div>
-    <!--<ul class="quotes">
-	  <% for(var i=0; i<movies.length; i++) {%>
-	    <li class="quote">
-	      <span><%= movies[i].title %></span>
-	      <span><%= movies[i].genres %></span>
-	    </li>
-	  <% } %>
-	</ul>-->
+    
 	<form action="/recomienda" method="POST">
 		<input type="text" name="peliculas" id="peliculas-input" value="" placeholder="">
-		<button type="submit">Recomiendame unas pelis chingonas</button>
+		<button type="submit">Recomiendame</button>
 	</form>
   </body>
   <script

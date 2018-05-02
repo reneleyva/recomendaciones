@@ -27,12 +27,6 @@ MongoClient.connect(url, (err, database) => {
   // start the express web server listening on 8080
   app.listen(8080, () => {
     console.log('listening on 8080');
-    // var movies = db.collection("movies", function(err, collection) {
-    // 	collection.find({movieId: "10"}).forEach(function (m) {
-    // 		console.log(m.genres);
-    // 	});
-    // }); 
-
   });
 });
 
@@ -44,9 +38,14 @@ app.get('/', (req, res) => {
   var movies = db.collection("movies").find().toArray((err, result) => {
      if (err) return console.log(err)
     // renders index.ejs
-    res.render('index.ejs', {movies: result})
+    res.render('index.ejs', {movies: result});
   }); 
 
+});
+
+app.post('/recomienda', (req, res) => {
+  console.log("LOL");
+  res.render('recomendaciones.ejs', {});
 });
 
 app.get('/autocomplete/:search', (req, res) => {
@@ -62,9 +61,3 @@ app.get('/autocomplete/:search', (req, res) => {
   
 });
 
-// add a document to the DB collection recording the click event
-app.post('/send', (req, res) => {
-  const click = {clickTime: new Date()};
-  console.log(req.body);
-  res.redirect("/");
-});
