@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+  </head>
+  <body>
+    <h1>Pon las pelis que te gustan prro</h1>
+    <form action="/send" method="POST" accept-charset="utf-8">
+      <input type="text" name="ids" id="search" placeholder="Buscar...">
+      <button type="submit">SEND!</button>
+    </form>
+	<div class="liked-movies">
+		<h3>Me gustan:</h3>
+		<ul id="movie-titles">
+		</ul>
+	</div>
+    <!--<ul class="quotes">
+	  <% for(var i=0; i<movies.length; i++) {%>
+	    <li class="quote">
+	      <span><%= movies[i].title %></span>
+	      <span><%= movies[i].genres %></span>
+	    </li>
+	  <% } %>
+	</ul>-->
+	<form action="/recomienda" method="POST">
+		<input type="text" name="peliculas" id="peliculas-input" value="" placeholder="">
+		<button type="submit">Recomiendame unas pelis chingonas</button>
+	</form>
+  </body>
+  <script
+  src="https://code.jquery.com/jquery-2.2.4.js"
+  integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+  crossorigin="anonymous"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+  <script src="client.js"></script>
+</html>
