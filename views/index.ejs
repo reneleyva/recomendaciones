@@ -17,6 +17,15 @@
 		<input type="text" name="peliculas" id="peliculas-input" value="" placeholder="">
 		<button type="submit">Recomiendame</button>
 	</form>
+  
+<ul class="quotes">
+    <% for(var i=0; i<movies.length; i++) {%>
+      <li class="quote">
+        <span><%= movies[i].title %></span>
+        <span><%= movies[i].genres %></span>
+      </li>
+    <% } %>
+  </ul>
   </body>
   <script
   src="https://code.jquery.com/jquery-2.2.4.js"

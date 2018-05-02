@@ -1,5 +1,6 @@
 console.log('Server-side code running');
 
+const recomendador = require('./recomendador'); 
 const express = require('express');
 const MongoClient = require('mongodb').MongoClient;
 const bodyParser = require("body-parser");
@@ -44,7 +45,8 @@ app.get('/', (req, res) => {
 });
 
 app.post('/recomienda', (req, res) => {
-  console.log("LOL");
+  var ids = req.body.peliculas.split(",");
+  recomendador(ids);
   res.render('recomendaciones.ejs', {});
 });
 

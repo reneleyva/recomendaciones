@@ -28,7 +28,11 @@ $('#search').autocomplete({
         	console.log(title);
         	$('#movie-titles').append(`<li>${title}</li>`);
         	var tmp = $('#peliculas-input').val();
-        	$('#peliculas-input').val(tmp + "," + movieId);
+            if (!tmp)
+        	   $('#peliculas-input').val(movieId);
+            else 
+               $('#peliculas-input').val(tmp + "," + movieId);
+
         	ui.item.value = "";
         }
     });
