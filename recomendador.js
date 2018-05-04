@@ -5,5 +5,4 @@ function recomienda(ids) {
 	console.log(ids);
 }
 
-
 module.exports = recomienda;
