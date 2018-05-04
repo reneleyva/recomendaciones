@@ -17,7 +17,7 @@ let db;
 
 // URL de la base de datos 
 // const url =  'mongodb://localhost:27017/db';
-const url =  process.env.MONGO_DB;
+const url =  "mongodb://duis:lizzluz@ds215380.mlab.com:15380/movies";
 
 MongoClient.connect(url, (err, database) => {
   if(err) {
