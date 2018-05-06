@@ -3,17 +3,22 @@
 <head>
   <title>Recomendaciones</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+
+  <style>
+  	ol {
+  		font-size: 15pt; 
+  	}
+  </style>
 </head>
 <body>
 <div class="container">
 	<div class="row">
 		<h2>Recomendaciones Para Ti</h2>
-		<ul class="browser-default">
+		<ol class="browser-default">
 		
-	  <% for(var i=0; i<recomiendaciones.length; i++) {%>
+	  <% for(var i=0; i< 20; i++) {%>
 	      <li class="quote">
 	        <span><%= recomiendaciones[i].titulo %></span>
-	        <span><%= recomiendaciones[i].valor %></span>
 	      </li>
 	  <% } %>
 
