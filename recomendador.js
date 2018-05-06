@@ -207,10 +207,6 @@ function recomienda(ids) {
 					gustos[i] = 0;
 				}
 			}
-
-			console.log(items);
-			console.log(generos);
-			console.log(matriz_principal);
 			// Document Frecuency.
 			var DF = crea_arreglo(generos.length);
 			// Inverse Document Frecuency.
@@ -250,22 +246,13 @@ function recomienda(ids) {
 				}
 			}
 
-			console.log(total_atributes);
-			console.log("Nueva matriz: ");
-			console.log(matriz_principal);
-			console.log(DF);
-			console.log(IDF);
-			console.log(user_profile);
-			console.log(user_prediction);
-			
+			// Guardará las recomendaciones finales ordenadas.
 			var recomendaciones = [];
 			for (var i = 0; i < user_prediction.length; i++) {
-				// recomendaciones[i] = [items[i],user_prediction[i]];
 				recomendaciones[i] = new Nodo(items[i],user_prediction[i]);
 			}
+			// Lo ordenamos de mayor a menor
 			quick(recomendaciones,0,recomendaciones.length-1);
-			console.log("Después de amar más a Liz");
-			console.log("Te recomendamos:");
 			var pelicula;
 			for (var i = 0; i < recomendaciones.length; i++) {
 				pelicula = recomendaciones[recomendaciones.length-1 -  i].titulo;
@@ -273,13 +260,6 @@ function recomienda(ids) {
 			}
 			
 			console.log("Termina todo");
-			/*
-			result.forEach((pel,index) => {
-				if (index>30) {
-					return false;
-				}
-				console.log(pel.titulo + " conincidencias: " + pel.valor);
-			});*/
 		});
 	});		
 };
