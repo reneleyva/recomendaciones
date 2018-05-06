@@ -46,6 +46,7 @@ app.get('/', (req, res) => {
 app.post('/recomienda', (req, res) => {
   var ids = req.body.peliculas.split(",");
   var rec = recomendador(ids);
+  console.log(rec);
   res.render('recomendaciones.ejs', {});
 });
 

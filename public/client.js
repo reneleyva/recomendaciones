@@ -3,7 +3,7 @@ console.log('Client-side code running');
 $('#search').autocomplete({
         source: function(req, res) {
             $.ajax({
-                url: "https://recomendaciones.herokuapp.com/autocomplete/"+req.term,
+                url: "http://localhost:5000/autocomplete/"+req.term,    
                 dataType: "json",
                 type: "GET",
                 data: {
