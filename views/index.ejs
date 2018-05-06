@@ -3,29 +3,94 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <style>
+
+      #recomendar {
+        float: right; 
+      }
+
+      .wrapper {
+        padding: 0px 200px 0px 200px; 
+      }
+
+      #mis-peliculas {
+        margin: 0 auto; 
+      }
+
+      .card-wrapper {
+        padding: 0px 200px 0px 200px;
+      }
+      
+      input[type=text] {
+        display: inline-block;
+        color: black;
+        padding: 10px;
+        width: 250px;
+        box-sizing: border-box;
+        /*background-color: rgba(0,0,0,0.25);*/
+        border: 2px solid grey;
+        border-radius: 2px;
+        margin: 10px auto;
+        transition:background-color 0.5s ease;
+      }
+
+      #search {
+        width: 100%;
+        font-size: 15pt;
+        border-radius: 3%;
+        margin-bottom: 80px;
+        color: black; 
+      }
+
+      .ui-menu .ui-menu-item a{
+          /*background:red;*/
+          height:10px;
+          font-size: 20px;
+      }
+    </style>
   </head>
   <body>
-    <h1>Pon las pelis que te gustan prro</h1>
-    <input type="text" name="ids" id="search" placeholder="Buscar...">
-	<div class="liked-movies">
-		<h3>Me gustan:</h3>
-		<ul id="movie-titles">
-		</ul>
-	</div>
-    
-	<form action="/recomienda" method="POST">
-		<input type="text" name="peliculas" id="peliculas-input" value="" placeholder="">
-		<button type="submit">Recomiendame</button>
-	</form>
+    <div class="container">
+      <h2 class="center-align">Indicanos que películas te gustan</h2>
+      <div class="row">
+        <div class=" col s12">
+          <div class="wrapper">
+              <input type="text" name="ids" id="search" placeholder="Buscar..." class="browser-default">
+          </div>
+         
+        </div>
+        <div class="card-wrapper">
   
-<ul class="quotes">
-    <% for(var i=0; i<movies.length; i++) {%>
-      <li class="quote">
-        <span><%= movies[i].title %></span>
-        <span><%= movies[i].genres %></span>
-      </li>
-    <% } %>
-  </ul>
+         <div class="col s12" id="mis-peliculas">
+            <div class="card horizontal">
+              <div class="card-image">
+                <img src="https://lajoyalink.com/wp-content/uploads/2018/03/Movie.jpg">
+              </div>
+              <div class="card-stacked">
+                <div class="card-content">
+                  <h5>Mis Películas: </h5>
+                  <ul id="movie-titles" class="browser-default">
+                
+                  </ul>
+                <form action="/recomienda" method="POST" id="peliculas-form">
+                  <input type="text" name="peliculas" id="peliculas-input" style="display:none;">
+                </form>
+                </div>
+                <div class="card-action">
+                  <a class="waves-effect waves-light btn" id="recomendar">¡Recomiendame!</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          </div>
+      </div>
+    </div>
+    
+    
+
+  
   </body>
   <script
   src="https://code.jquery.com/jquery-2.2.4.js"

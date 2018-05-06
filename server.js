@@ -33,28 +33,27 @@ MongoClient.connect(url, (err, database) => {
 
 app.use(bodyParser.json());
 
+
 // serve the homepage
 app.get('/', (req, res) => {
-  var movies = db.collection("movies").find().toArray((err, result) => {
-     if (err) return console.log(err)
-    // renders index.ejs
-    res.render('index.ejs', {movies: result});
-  }); 
+  // renders index.ejs
+  res.render('index.ejs', {});
 
 });
 
+async function rendenRecomendaciones(ids, res) {
+    var rec = await recomendador(ids);
+    console.log(rec);
+    res.render('recomendaciones.ejs', {recomiendaciones: rec});
+}; 
+
 app.post('/recomienda', (req, res) => {
   var ids = req.body.peliculas.split(",");
-  var rec = recomendador(ids);
-  console.log(rec);
-  res.render('recomendaciones.ejs', {});
+  var rec = rendenRecomendaciones(ids, res); 
 });
 
 app.get('/autocomplete/:search', (req, res) => {
   var search = req.params.search;
-  if (search.length < 2)
-    return; 
-
   var exp = new RegExp(search, "i");
   var query = db.collection("movies").find({"title": exp}, {title: 1})
   .limit(5).toArray((err, result) => {
