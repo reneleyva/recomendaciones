@@ -9,7 +9,7 @@ jQuery(document).ready(function($) {
     $('#search').autocomplete({
             source: function(req, res) {
                 $.ajax({
-                    url: "https://recomendaciones.herokuapp.com/"+req.term,    
+                    url: "https://recomendaciones.herokuapp.com/autocomplete/"+req.term,    
                     dataType: "json",
                     type: "GET",
                     data: {
