@@ -1,3 +1,4 @@
+"use strict";
 console.log('Server-side code running');
 
 const recomendador = require('./recomendador'); 
@@ -18,7 +19,8 @@ let db;
 // ***Replace the URL below with the URL for your database***
 // const url = 'mongodb://user:password@mongo_address:mongo_port/databaseName';
 // E.g. for option 2) above this will be:
-const url =  'mongodb://localhost:27017/db';
+// const url =  'mongodb://localhost:27017/movies';
+const url =  "mongodb://duis:lizzluz@ds215380.mlab.com:15380/movies";
 
 MongoClient.connect(url, (err, database) => {
   if(err) {
@@ -46,7 +48,7 @@ app.get('/', (req, res) => {
 
 app.post('/recomienda', (req, res) => {
   var ids = req.body.peliculas.split(",");
-  recomendador(ids);
+  var rec = recomendador(ids);
   res.render('recomendaciones.ejs', {});
 });
 
