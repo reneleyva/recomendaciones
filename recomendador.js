@@ -117,7 +117,6 @@ function temp() {
 	}
 }
 
-
 function recomienda(ids) {
 	var objectIds = []
 	// Metemos los ids a un arreglo, para buscar las películas.
@@ -184,7 +183,7 @@ function recomienda(ids) {
 				matriz_principal[i] = [];
 				for (var j = 0; j < generos.length; j++) {
 					for (var k = 0; k < generos_aux.length; k++) {
-						if (generos[j] === generos_aux[k]) {
+						if (generos[j] == generos_aux[k]) {
 							total_atributes[i]++;
 							cont ++ ;
 							matriz_principal[i][j] = 1;

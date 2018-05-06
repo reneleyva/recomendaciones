@@ -16,10 +16,7 @@ app.use(bodyParser.urlencoded({
 // connect to the db and start the express server
 let db;
 
-// ***Replace the URL below with the URL for your database***
-// const url = 'mongodb://user:password@mongo_address:mongo_port/databaseName';
-// E.g. for option 2) above this will be:
-// const url =  'mongodb://localhost:27017/movies';
+
 const url =  "mongodb://duis:lizzluz@ds215380.mlab.com:15380/movies";
 
 MongoClient.connect(url, (err, database) => {
@@ -28,8 +25,8 @@ MongoClient.connect(url, (err, database) => {
   }
   db = database;
   // start the express web server listening on 8080
-  app.listen(8080, () => {
-    console.log('listening on 8080');
+  app.listen(process.env.PORT || 5000, () => {
+    console.log('listening on 5000');
   });
 });
 
