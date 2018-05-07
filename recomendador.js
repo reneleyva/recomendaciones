@@ -23,13 +23,19 @@ class Nodo {
 var db;
 
 const url =  'mongodb://duis:lizzluz@ds215380.mlab.com:15380/movies';
-
+// Conexión a mongo
 MongoClient.connect(url, (err, database) => {
   if(err) {
   }
   db = database;
 });
 
+/**
+ * Función que regresa recomendaciones de películas 
+ * Basado en filtrado de contenido de películas. 
+ * Recibe un arreglo de strings ids, que son los ids en la base de datos
+ *  de las películas proporcionadas por el ususario.
+ */
 function recomienda(ids) {
 
 	// Promesa principal

@@ -1,11 +1,12 @@
-console.log('Client-side code running');
 jQuery(document).ready(function($) {
+    // Evento click del botón recomiendame de index. 
     $('#recomendar').click(function() {
         var pelis = $('#peliculas-input').val();
         if (pelis)
             $('#peliculas-form').submit();    
     });
 
+    // Para autocomplete de jquery ui 
     $('#search').autocomplete({
             source: function(req, res) {
                 $.ajax({
@@ -39,6 +40,7 @@ jQuery(document).ready(function($) {
                 });
             },
 
+            // Cuando se selecciona se agrega a la lista y a un formulario escondido
             select: function(event, ui) {
                 var movieId = ui.item.value;
                 if (!movieId)

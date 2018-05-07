@@ -7,18 +7,17 @@ const MongoClient = require('mongodb').MongoClient;
 const bodyParser = require("body-parser");
 const app = express();
 
-// serve files from the public directory
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({
     extended: true
 }));
-// connect to the db and start the express server
+
 let db;
 
 
 const url =  "mongodb://duis:lizzluz@ds215380.mlab.com:15380/movies";
-
+/* Conexión a Mongo de mlab */
 MongoClient.connect(url, (err, database) => {
   if(err) {
     return console.log(err);
@@ -34,24 +33,27 @@ MongoClient.connect(url, (err, database) => {
 app.use(bodyParser.json());
 
 
-// serve the homepage
+// Página principal
 app.get('/', (req, res) => {
   // renders index.ejs
   res.render('index.ejs', {});
 
 });
 
+// Función asincrona que obtiene el resultado de recomendador. 
 async function rendenRecomendaciones(ids, res) {
     var rec = await recomendador(ids);
     console.log(rec);
     res.render('recomendaciones.ejs', {recomiendaciones: rec});
 }; 
 
+// Post  para recomienda
 app.post('/recomienda', (req, res) => {
   var ids = req.body.peliculas.split(",");
   var rec = rendenRecomendaciones(ids, res); 
 });
 
+// Autocompletado del input principal
 app.get('/autocomplete/:search', (req, res) => {
   var search = req.params.search;
   var exp = new RegExp(search, "i");
