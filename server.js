@@ -1,3 +1,7 @@
+/**
+ * Archivo para creación de servidor en Expressjs
+ */
+
 "use strict";
 console.log('Server-side code running');
 
@@ -17,6 +21,7 @@ let db;
 
 
 const url =  "mongodb://duis:lizzluz@ds215380.mlab.com:15380/movies";
+
 /* Conexión a Mongo de mlab */
 MongoClient.connect(url, (err, database) => {
   if(err) {
