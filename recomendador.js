@@ -152,6 +152,9 @@ function recomienda(ids) {
 					}
 					// Calculamos IDF con base en DF
 					IDF[i] = Math.log(tam/DF[i])/Math.log(tam);
+					console.log(`Tamaño: ${tam}`);
+					console.log(IDF[i]);
+					console.log(DF[i]);
 				}
 
 				// Comienza a realizar la "predicción".
