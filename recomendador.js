@@ -164,7 +164,9 @@ function recomienda(ids) {
 						user_prediction[i] += matriz_principal[i][j]*user_profile[j]*IDF[j];
 					}
 				}
-
+				
+				// Prueba en Gurú de viaje :B
+				console.log(user_profile)
 				
 				var recomendaciones = [];
 				for (var i = 0; i < user_prediction.length; i++) {
